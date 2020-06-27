@@ -8,3 +8,16 @@ before_install:
 script:
 
    - docker run -e CI=true henhito/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elacticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-203203670229"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $aws_access_key
+  secret_access_key:
+     secure: "$aws_secret_key"
