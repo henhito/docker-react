@@ -1,0 +1,10 @@
+sudo: required
+service:
+   - docker
+
+before_install:
+   - docker build -t henhito/docker-react -f Dockerfile.dev .
+
+script:
+
+   - docker run henhito/docker-react npm run test -- --coverage
