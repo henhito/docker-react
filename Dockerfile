@@ -3,7 +3,7 @@ From node:alpine
 WORKDIR '/app'
 
 COPY package.json .
-RUN npm install yarn
+RUN npm install
 
 COPY . .
 
